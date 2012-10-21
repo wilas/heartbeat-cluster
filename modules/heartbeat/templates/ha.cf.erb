@@ -1,0 +1,20 @@
+debugfile /var/log/ha-debug
+logfile /var/log/ha-log
+
+logfacility local0
+
+keepalive 1
+
+deadtime 10
+warntime 5
+initdead 20
+
+bcast <%= iface %>
+udpport 694
+
+autojoin none
+
+auto_failback on
+node <%= master_node %>
+<% other_nodes.each do |nde| -%>
+node <%= nde %> <% end -%>
