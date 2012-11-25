@@ -27,7 +27,7 @@ high-availability clustering using Heartbeat - httpd service example
 
 ## Copyright and license
 
-Copyright 2012, the ci-ippon authors
+Copyright 2012, the heartbeat-cluster authors
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this work except in compliance with the License.
