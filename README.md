@@ -1,11 +1,24 @@
 # Description
-high-availability clustering using Heartbeat - httpd service example
+
+high-availability clustering using Heartbeat - httpd service as an example
 
 ## VM description:
 
  - OS: Scientific linux 6
- - master node: hydra01
- - other node: hydra02
+ - master node: hydra01.farm
+ - other node: hydra02.farm
+
+## Howto
+
+ - create SL64_box using [veewee-SL64-box](https://github.com/wilas/veewee-SL64-box)
+ - copy ssh_keys from [ssh-gerwazy](https://github.com/wilas/ssh-gerwazy)
+
+```
+    vagrant up
+    ssh root@77.77.77.121 #hydra01
+    ssh root@77.77.77.122 #hydra02
+    vagrant destroy
+```
 
 ## Tests:
 
