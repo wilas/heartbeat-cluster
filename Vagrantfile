@@ -5,7 +5,7 @@ Vagrant::Config.run do |config|
   
   config.vm.define :hydra01 do |app_config|  
     vm_name= "hydra01"
-    app_config.vm.box = "SL64_box"
+    app_config.vm.box = "SL6"
     app_config.vm.host_name = "#{vm_name}.farm"
     app_config.vm.customize ["modifyvm", :id, "--memory", "512", "--name", "#{vm_name}"]
   
@@ -13,6 +13,7 @@ Vagrant::Config.run do |config|
     app_config.vm.share_folder "v-root", "/vagrant", "."
 
     app_config.vm.provision :puppet do |puppet|
+        puppet.options = "--hiera_config hiera.yaml"
         puppet.manifests_path = "manifests"
         puppet.manifest_file  = "hydra.pp"
         puppet.module_path = "modules"
@@ -21,7 +22,7 @@ Vagrant::Config.run do |config|
   
   config.vm.define :hydra02 do |app_config|  
     vm_name= "hydra02"
-    app_config.vm.box = "SL64_box"
+    app_config.vm.box = "SL6"
     app_config.vm.host_name = "#{vm_name}.farm"
     app_config.vm.customize ["modifyvm", :id, "--memory", "512", "--name", "#{vm_name}"]
   
@@ -29,6 +30,7 @@ Vagrant::Config.run do |config|
     app_config.vm.share_folder "v-root", "/vagrant", "."
 
     app_config.vm.provision :puppet do |puppet|
+        puppet.options = "--hiera_config hiera.yaml"
         puppet.manifests_path = "manifests"
         puppet.manifest_file  = "hydra.pp"
         puppet.module_path = "modules"
