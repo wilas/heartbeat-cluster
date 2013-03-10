@@ -1,5 +1,14 @@
 ---
 classes : 
     - 'ha_apache'
+    - 'heartbeat'
 ha_apache::listen_port : 80
 ha_apache::listen_ip : 77.77.77.120
+heartbeat::master_node : 'hydra01.farm'
+heartbeat::other_nodes : 
+                    - 'hydra02.farm'
+heartbeat::share_ip     : '77.77.77.120'
+heartbeat::ha_resources : 
+                    - 'httpd'
+heartbeat::iface        : 'eth1'
+heartbeat::key          : 'simplekey'

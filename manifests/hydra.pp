@@ -14,9 +14,12 @@ Firewall {
 
 # Include classes - search for classes in *.yaml/*.json files
 hiera_include('classes')
+
 # Classes order
 Class['yum_repos'] -> Class['basic_package'] -> Class['user::root']
 Class['basic_package'] -> Class['ha_apache']
+Class['ha_apache'] ~> Class['heartbeat']
+
 # Extra firewall rules
 firewall { '100 allow apache':
     state  => ['NEW'],
@@ -41,17 +44,7 @@ host { 'hydra02.farm':
     host_aliases => 'hydra02',
 }
 
-# Extra
-class { 'heartbeat':
-    master_node  => 'hydra01.farm',
-    other_nodes  => ['hydra02.farm'],
-    share_ip     => '77.77.77.120',
-    ha_resources => ['httpd'],
-    iface        => 'eth1',
-    key          => 'simplekey',
-    subscribe    => Class['ha_apache'],
-}
-# testing...
+# Test
 file { '/var/www/html/index.html':
     ensure  => file,
     owner   => 'root',
