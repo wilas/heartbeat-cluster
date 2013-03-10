@@ -1,5 +1,4 @@
 <VirtualHost *:80>
-
     ServerName <%= vhost_domain %>
     ServerAlias www.<%= vhost_domain %>
     ServerAdmin admin@<%= vhost_domain %>
@@ -13,16 +12,12 @@
         Options +Includes +Indexes +FollowSymLinks
         AllowOverride all
     </Directory>
-
-    #RewriteEngine On
-    #RewriteRule ^(.*$) https://kkk.pl$1
-
 </VirtualHost>
 
 #<VirtualHost *:443>
 #    ServerName <%= vhost_domain %>
 #    ServerAlias www.<%= vhost_domain %>
-#    
+#
 #    DocumentRoot <%= vhost_root %>
 
 #    SSLEngine on
@@ -33,5 +28,4 @@
 #    SSLCertificateFile /etc/ssl/current/name.com.crt
 #    SSLCertificateKeyFile /etc/ssl/current/name.com.key
 #    SSLCertificateChainFile /etc/ssl/current/name.com-chain.crt
-
 #</VirtualHost>

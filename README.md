@@ -40,7 +40,7 @@ high-availability clustering using Heartbeat - httpd service as an example
 
 ## Copyright and license
 
-Copyright 2012, Kamil Wilas (wilas.pl)
+Copyright 2012-2013, Kamil Wilas (wilas.pl)
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this work except in compliance with the License.
