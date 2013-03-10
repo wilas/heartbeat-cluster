@@ -2,10 +2,10 @@ class heartbeat {
 
     $master_node = hiera('heartbeat::master_node',undef)
     $other_nodes = hiera_array('heartbeat::other_nodes',undef)
-    $share_ip = hiera_array('heartbeat::share_ip',undef)
+    $share_ip = hiera('heartbeat::share_ip',undef)
     $ha_resources = hiera_array('heartbeat::ha_resources',[])
-    $iface = hiera_array('heartbeat::iface','eth0')
-    $key = hiera_array('heartbeat::key','test!password!')
+    $iface = hiera('heartbeat::iface','eth0')
+    $key = hiera('heartbeat::key','test!password!')
 
     if $master_node != undef and $other_nodes != undef and $share_ip != undef {
         package { 'heartbeat':
